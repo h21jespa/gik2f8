@@ -1,7 +1,6 @@
 'use strict';
 /* Vad ska vi göra här ? */
 
-const searchInput = null;
 const bookList = [
     {
         id: 1,
@@ -15,13 +14,23 @@ const bookList = [
     }
 ];
 
-function handleKeyPress (input) {
+/*const searchInput = document.children[0].children[1].children[1].children[1]; */
+
+const searchField = document.getElementById('searchField');
+
+console.log(searchField);
+
+/*  keydown, keyup*/
+searchField.addEventListener("keyup", handleKeyPress);
+
+
+function handleKeyPress (e) {
     /* Ta emot / läsa av värdet i inputfältet.
     Skicka vidare värdet till Searchbooks
     searchbooks returnerar en filtrerad lista
     filtrerade listan skickas till renderBookList
     */
-    searchBooks(input);
+   searchBooks(e.target.value);
 }
 
 function searchBooks(searchTerm){
@@ -40,8 +49,6 @@ function renderBookList(list) {
 
     console.log(list)
 }
-
-handleKeyPress('e');
 
 
 
